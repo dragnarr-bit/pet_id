@@ -131,6 +131,8 @@ height: 30px;         /* smaller, fits nicely */
     width: 480px;       /* bigger than default 360px */
     padding: 20px;      /* optional: more padding */
     border-radius: 20px; 
+    transform: scale(1.3);  /* 30% bigger */
+    transform-origin: top center;
   }
 
   .main {
