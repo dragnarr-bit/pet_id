@@ -12,7 +12,10 @@ body {
   justify-content: center; /* horizontal center */
   align-items: center;     /* vertical center */
   min-height: 100vh;       /* full viewport height */
-  background: url("background.png") center/cover no-repeat fixed;
+  /* Repeating background */
+  background: url("background.png") repeat; /* repeat in both directions */
+  background-position: top left; /* start from top-left corner */
+  background-size: auto; /* keep original size of image */
   padding: 0;              /* remove extra padding */
 }
 
