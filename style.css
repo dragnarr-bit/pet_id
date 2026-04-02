@@ -125,3 +125,36 @@ height: 30px;         /* smaller, fits nicely */
   padding: 8px;
   background: #fff7ed;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .card {
+    width: 480px;       /* bigger than default 360px */
+    padding: 20px;      /* optional: more padding */
+    border-radius: 20px; 
+  }
+
+  .main {
+    padding: 20px;      /* more space inside the main section */
+  }
+
+  .right .circle {
+    width: 130px;       /* bigger pet photo */
+    height: 130px;
+  }
+
+  .right h2 {
+    font-size: 20px;    /* bigger pet name */
+  }
+
+  .left {
+    font-size: 15px;    /* bigger text for details */
+  }
+
+  .owner {
+    font-size: 15px;    /* bigger owner info */
+  }
+
+  .footer {
+    font-size: 13px;    /* slightly bigger footer */
+  }
+}
