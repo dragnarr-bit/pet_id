@@ -12,7 +12,8 @@ body {
   justify-content: center; /* horizontal center */
   align-items: center;     /* vertical center */
   min-height: 100vh;       /* full viewport height */
-  background: url("background.png") center/cover no-repeat fixed;
+  background: url("background.png");
+  background-repeat: repeat;
   padding: 0;              /* remove extra padding */
 }
 
