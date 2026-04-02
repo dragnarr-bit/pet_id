@@ -44,7 +44,7 @@ body {
 .header img {
 height: 30px;         /* smaller, fits nicely */
   vertical-align: middle;
-  margin-right: 10px;    /* spacing from text */
+  margin-right: 7px;    /* spacing from text */
 }
 
 .subheader {
