@@ -2,8 +2,8 @@ const pet = {
   name: "Max",
   age: "11 Months",
   breed: "Belgian Malinois",
-  sex: "Male",
   status: "Fully Vaccinated",
+  sex: "Male",
   color: "Fawn/Tan with Black Mask",
   owner: "Lhyam Khyle Paredes",
   address: "Aquarius St., JR Torres Subd., Brgy. Singcang, Bacolod City",
@@ -15,8 +15,8 @@ document.getElementById("name").textContent = pet.name;
 document.getElementById("petNameBig").textContent = pet.name;
 document.getElementById("age").textContent = pet.age;
 document.getElementById("breed").textContent = pet.breed;
-document.getElementById("sex").textContent = pet.sex;
 document.getElementById("status").textContent = pet.status;
+document.getElementById("sex").textContent = pet.sex;
 document.getElementById("color").textContent = pet.color;
 
 document.getElementById("owner").innerHTML = "<strong>Owner:</strong> " + pet.owner;
