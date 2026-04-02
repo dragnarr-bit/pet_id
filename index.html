@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet ID Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font closer to gov style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Decorative Corners -->
+  <div class="corner top-left"></div>
+  <div class="corner top-right"></div>
+  <div class="corner bottom-left"></div>
+  <div class="corner bottom-right"></div>
+
+  <!-- Header -->
+    
+  <div class="header">
+  <img src="logo.png" alt="Bacolod Logo">
+    🇵🇭 REPUBLIC OF THE PHILIPPINES
+  </div>
+
+  <div class="subheader">
+    PET IDENTIFICATION CARD | BACOLOD CITY
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="left">
+      <div class="row"><span>Name</span><strong id="name"></strong></div>
+      <div class="row"><span>Age</span><strong id="age"></strong></div>
+      <div class="row"><span>Breed</span><strong id="breed"></strong></div>
+      <div class="row"><span>Sex</span><strong id="sex"></strong></div>
+      <div class="row"><span>Color</span><strong id="color"></strong></div>
+    </div>
+
+    <div class="right">
+      <div class="circle">
+        <img id="petImage">
+      </div>
+      <h2 id="petNameBig"></h2>
+    </div>
+
+  </div>
+
+  <!-- Owner -->
+  <div class="owner">
+    <h3>OWNER / RESIDENCE INFORMATION</h3>
+    <p id="owner"></p>
+    <p id="address"></p>
+    <p id="phone"></p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    MAX | BELGIAN MALINOIS
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

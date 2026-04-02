@@ -1,0 +1,124 @@
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  min-height: 100vh;       /* full viewport height */
+  background: url("background.png") center/cover no-repeat fixed;
+  padding: 0;              /* remove extra padding */
+}
+
+.card {
+  position: relative;
+  width: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 4px solid #d97706;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(2px);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(90deg, #b45309, #f59e0b);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.header img {
+height: 30px;         /* smaller, fits nicely */
+  vertical-align: middle;
+  margin-left: 10px;    /* spacing from text */
+}
+
+.subheader {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 2px solid #f59e0b;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  padding: 15px;
+}
+
+/* LEFT INFO */
+.left {
+  flex: 1;
+  font-size: 13px;
+}
+
+.left p {
+  margin: 8px 0;
+}
+
+.left span {
+  display: block;
+  font-size: 11px;
+  color: #555;
+}
+
+/* RIGHT */
+.right {
+  text-align: center;
+}
+
+/* PHOTO CIRCLE */
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+}
+
+.right h2 {
+  margin-top: 8px;
+  color: #d97706;
+}
+
+/* OWNER SECTION */
+.owner {
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: white;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.owner h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  padding: 8px;
+  background: #fff7ed;
+}
