@@ -17,7 +17,35 @@ body {
   background-size: auto; /* keep original size of image */
   padding: 0;              /* remove extra padding */
 }
+.birthday-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 10px 14px;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}
+
+.birthday-box span {
+  display: block;
+  font-size: 11px;
+  color: #555;
+}
+.birthday-box strong {
+  display: block;
+  font-size: 14px;
+  color: #d97706;
+  margin-top: 3px;
+}
 .card {
   position: relative;
   width: 360px;
