@@ -18,38 +18,19 @@ function calculateLiveAge(birthDate) {
 
   let years = now.getFullYear() - birth.getFullYear();
   let months = now.getMonth() - birth.getMonth();
-  let days = now.getDate() - birth.getDate();
-  let hours = now.getHours() - birth.getHours();
-  let minutes = now.getMinutes() - birth.getMinutes();
-  let seconds = now.getSeconds() - birth.getSeconds();
 
-  if (seconds < 0) {
-    seconds += 60;
-    minutes--;
-  }
-
-  if (minutes < 0) {
-    minutes += 60;
-    hours--;
-  }
-
-  if (hours < 0) {
-    hours += 24;
-    days--;
-  }
-
-  if (days < 0) {
+  // adjust if current day is before birth day
+  if (now.getDate() < birth.getDate()) {
     months--;
-    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-    days += prevMonth.getDate();
   }
 
+  // fix negative months
   if (months < 0) {
     years--;
     months += 12;
   }
 
-  return `${years}y ${months}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  return `${years}y ${months}mo`;
 }
 
 // 🎂 BIRTHDAY COUNTDOWN
