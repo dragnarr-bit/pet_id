@@ -11,48 +11,50 @@ const pet = {
   birthDate: "2025-04-15"
 };
 
-// 🔥 Calculate exact age (years, months, days)
-function calculateExactAge(birthDate) {
-  const today = new Date();
+// 🔥 Live age calculator (years, months, days, hours, minutes, seconds)
+function calculateLiveAge(birthDate) {
+  const now = new Date();
   const birth = new Date(birthDate);
 
-  let years = today.getFullYear() - birth.getFullYear();
-  let months = today.getMonth() - birth.getMonth();
-  let days = today.getDate() - birth.getDate();
+  let years = now.getFullYear() - birth.getFullYear();
+  let months = now.getMonth() - birth.getMonth();
+  let days = now.getDate() - birth.getDate();
+  let hours = now.getHours() - birth.getHours();
+  let minutes = now.getMinutes() - birth.getMinutes();
+  let seconds = now.getSeconds() - birth.getSeconds();
 
-  // Fix negative days
+  if (seconds < 0) {
+    seconds += 60;
+    minutes--;
+  }
+
+  if (minutes < 0) {
+    minutes += 60;
+    hours--;
+  }
+
+  if (hours < 0) {
+    hours += 24;
+    days--;
+  }
+
   if (days < 0) {
     months--;
-    const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
     days += prevMonth.getDate();
   }
 
-  // Fix negative months
   if (months < 0) {
     years--;
     months += 12;
   }
 
-  // Build readable format
-  let result = "";
-
-  if (years > 0) {
-    result += `${years} yr${years > 1 ? "s" : ""} `;
-  }
-
-  if (months > 0 || years > 0) {
-    result += `${months} mo${months > 1 ? "s" : ""} `;
-  }
-
-  result += `${days} day${days > 1 ? "s" : ""}`;
-
-  return result.trim();
+  return `${years}y ${months}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-// 🔥 Set values to HTML
+// 🔥 Set static values
 document.getElementById("name").textContent = pet.name;
 document.getElementById("petNameBig").textContent = pet.name;
-document.getElementById("age").textContent = calculateExactAge(pet.birthDate);
 document.getElementById("breed").textContent = pet.breed;
 document.getElementById("status").textContent = pet.status;
 document.getElementById("sex").textContent = pet.sex;
@@ -63,3 +65,14 @@ document.getElementById("address").innerHTML = "<strong>Address:</strong> " + pe
 document.getElementById("phone").innerHTML = "<strong>Phone:</strong> " + pet.phone;
 
 document.getElementById("petImage").src = pet.image;
+
+// 🔥 LIVE ticking every second
+function updateAge() {
+  document.getElementById("age").textContent = calculateLiveAge(pet.birthDate);
+}
+
+// run immediately
+updateAge();
+
+// update every second
+setInterval(updateAge, 1000);
