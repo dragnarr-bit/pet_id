@@ -11,8 +11,8 @@ const pet = {
   birthDate: "2025-04-15"
 };
 
-// 🔥 Function to calculate age automatically
-function calculateAge(birthDate) {
+// 🔥 Calculate exact age (years, months, days)
+function calculateExactAge(birthDate) {
   const today = new Date();
   const birth = new Date(birthDate);
 
@@ -20,29 +20,39 @@ function calculateAge(birthDate) {
   let months = today.getMonth() - birth.getMonth();
   let days = today.getDate() - birth.getDate();
 
+  // Fix negative days
   if (days < 0) {
     months--;
     const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
     days += prevMonth.getDate();
   }
 
+  // Fix negative months
   if (months < 0) {
     years--;
     months += 12;
   }
 
-  // Format output
+  // Build readable format
+  let result = "";
+
   if (years > 0) {
-    return `${years} yr${years > 1 ? "s" : ""} ${months} mo${months > 1 ? "s" : ""}`;
-  } else {
-    return `${months} mo${months > 1 ? "s" : ""}`;
+    result += `${years} yr${years > 1 ? "s" : ""} `;
   }
+
+  if (months > 0 || years > 0) {
+    result += `${months} mo${months > 1 ? "s" : ""} `;
+  }
+
+  result += `${days} day${days > 1 ? "s" : ""}`;
+
+  return result.trim();
 }
 
-// Set values to HTML
+// 🔥 Set values to HTML
 document.getElementById("name").textContent = pet.name;
 document.getElementById("petNameBig").textContent = pet.name;
-document.getElementById("age").textContent = calculateAge(pet.birthDate);
+document.getElementById("age").textContent = calculateExactAge(pet.birthDate);
 document.getElementById("breed").textContent = pet.breed;
 document.getElementById("status").textContent = pet.status;
 document.getElementById("sex").textContent = pet.sex;
