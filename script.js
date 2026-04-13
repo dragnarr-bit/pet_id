@@ -8,23 +8,21 @@ const pet = {
   address: "Aquarius St., JR Torres Subd., Brgy. Singcang, Bacolod City",
   phone: "09663784966 (Globe)",
   image: "download.png",
-  birthDate: "2025-04-15"
+  birthDate: "2025-04-15",
+
+  facebook: "https://facebook.com/yourprofile"
 };
 
-// 🔥 LIVE AGE (years → seconds)
+// AGE
 function calculateLiveAge(birthDate) {
   const now = new Date();
   const birth = new Date(birthDate);
 
   let years = now.getFullYear() - birth.getFullYear();
   let months = now.getMonth() - birth.getMonth();
+  let days = now.getDate() - birth.getDate();
 
-  // adjust if current day is before birth day
-  if (now.getDate() < birth.getDate()) {
-    months--;
-  }
-
-  // fix negative months
+  if (days < 0) months--;
   if (months < 0) {
     years--;
     months += 12;
@@ -33,10 +31,17 @@ function calculateLiveAge(birthDate) {
   return `${years}y ${months}mo`;
 }
 
-// 🎂 BIRTHDAY COUNTDOWN
+// BIRTHDAY COUNTDOWN
 function getBirthdayCountdown(birthDate) {
   const now = new Date();
   const birth = new Date(birthDate);
+
+  if (
+    now.getMonth() === birth.getMonth() &&
+    now.getDate() === birth.getDate()
+  ) {
+    return "🎉 TODAY!";
+  }
 
   let nextBirthday = new Date(
     now.getFullYear(),
@@ -55,15 +60,10 @@ function getBirthdayCountdown(birthDate) {
   let minutes = Math.floor((diff / (1000 * 60)) % 60);
   let seconds = Math.floor((diff / 1000) % 60);
 
-  // 🎉 If it's the birthday
-  if (days === 0 && hours === 0 && minutes === 0) {
-    return "🎉 TODAY!";
-  }
-
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-// 🔥 SET STATIC INFO
+// SET DATA
 document.getElementById("name").textContent = pet.name;
 document.getElementById("petNameBig").textContent = pet.name;
 document.getElementById("breed").textContent = pet.breed;
@@ -77,14 +77,21 @@ document.getElementById("phone").innerHTML = "<strong>Phone:</strong> " + pet.ph
 
 document.getElementById("petImage").src = pet.image;
 
-// 🔄 LIVE UPDATE LOOP
+// 🔗 BUTTON LINKS
+const encodedAddress = encodeURIComponent(pet.address);
+document.getElementById("mapBtn").href =
+  `https://www.google.com/maps?q=${encodedAddress}`;
+
+document.getElementById("fbBtn").href = pet.facebook;
+
+// LIVE UPDATE
 function updateUI() {
-  document.getElementById("age").textContent = calculateLiveAge(pet.birthDate);
-  document.getElementById("birthdayTimer").textContent = getBirthdayCountdown(pet.birthDate);
+  document.getElementById("age").textContent =
+    calculateLiveAge(pet.birthDate);
+
+  document.getElementById("birthdayTimer").textContent =
+    getBirthdayCountdown(pet.birthDate);
 }
 
-// run immediately
 updateUI();
-
-// update every second
 setInterval(updateUI, 1000);
