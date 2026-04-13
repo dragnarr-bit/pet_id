@@ -28,35 +28,32 @@ body {
 /* BIRTHDAY BOX */
 .birthday-box {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 12px;      /* slightly closer to edge */
+  right: 12px;
 
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #f59e0b;
-  border-radius: 12px;
-  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #f59e0b;  /* thinner border */
+  border-radius: 10px;
 
-  font-size: 12px;
+  padding: 6px 10px;  /* smaller padding */
+
+  font-size: 10px;    /* smaller text */
   text-align: center;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* lighter shadow */
+  backdrop-filter: blur(3px);
+
   z-index: 2;
 }
 
 .birthday-box span {
-  display: block;
-  font-size: 11px;
-  color: #555;
+  font-size: 9px;
 }
 
 .birthday-box strong {
-  display: block;
-  font-size: 14px;
-  color: #d97706;
-  margin-top: 3px;
+  font-size: 11px;
+  margin-top: 2px;
 }
-
 /* CARD */
 .card {
   position: relative;
