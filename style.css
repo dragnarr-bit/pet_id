@@ -176,7 +176,7 @@ body {
    BARCODE (NEW)
 ========================= */
 .barcode {
-  width: 120px;
+  width: 155px;
   height: auto;
   margin-top: 6px;
   object-fit: contain;
