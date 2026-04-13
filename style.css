@@ -18,8 +18,8 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* prevent vertical centering bug */
-  min-height: 100dvh; /* mobile-safe viewport */
+  align-items: flex-start;
+  min-height: 100dvh;
   background: url("background.png") repeat;
   background-size: auto;
   padding-top: 80px;
@@ -44,12 +44,12 @@ body {
 }
 
 .birthday-box span {
-  display: block; /* FIX: ensures proper stacking */
+  display: block;
   font-size: 9px;
 }
 
 .birthday-box strong {
-  display: block; /* FIX: spacing consistency */
+  display: block;
   font-size: 11px;
   margin-top: 2px;
 }
@@ -73,7 +73,7 @@ body {
    HEADER
 ========================= */
 .header {
-  display: flex;               /* FIX: better alignment */
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -105,14 +105,22 @@ body {
 .main {
   display: flex;
   padding: 15px;
-  gap: 10px; /* FIX: spacing between columns */
+  gap: 10px;
+  align-items: center; /* ✅ vertical alignment fix */
+}
+
+/* =========================
+   LEFT + RIGHT (FIXED BALANCE)
+========================= */
+.left,
+.right {
+  flex: 1; /* ✅ equal width columns */
 }
 
 /* =========================
    LEFT INFO
 ========================= */
 .left {
-  flex: 1;
   font-size: 13px;
 }
 
@@ -134,20 +142,25 @@ body {
    RIGHT SIDE
 ========================= */
 .right {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* ✅ center circle */
+  justify-content: center;
+  text-align: center;
 }
 
-/* PHOTO */
+/* =========================
+   PHOTO
+========================= */
 .circle {
-  width: 140px;   /* was 100px */
+  width: 140px;
   height: 140px;
   border-radius: 50%;
   padding: 6px;
   background: linear-gradient(135deg, #f59e0b, #d97706);
-  margin: 0 auto;
+  display: flex;              /* ✅ ensure perfect centering */
+  align-items: center;
+  justify-content: center;
 }
 
 .circle img {
@@ -158,6 +171,9 @@ body {
   background: white;
 }
 
+/* =========================
+   NAME
+========================= */
 .right h2 {
   margin-top: 8px;
   color: #d97706;
@@ -232,6 +248,6 @@ body {
 ========================= */
 @media (max-width: 767px) {
   .card {
-    transform: none; /* prevent scaling bugs */
+    transform: none;
   }
 }
