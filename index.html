@@ -5,28 +5,20 @@
   <title>Pet ID Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font closer to gov style -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="birthday-box">
   <span>🎂 Next Birthday</span>
   <strong id="birthdayTimer"></strong>
 </div>
+
 <div class="card">
 
-  <!-- Decorative Corners -->
-  <div class="corner top-left"></div>
-  <div class="corner top-right"></div>
-  <div class="corner bottom-left"></div>
-  <div class="corner bottom-right"></div>
-
-  <!-- Header -->
-    
   <div class="header">
-  <img src="logo.png" alt="Bacolod Logo">
+    <img src="logo.png">
     REPUBLIC OF THE PHILIPPINES
   </div>
 
@@ -34,7 +26,6 @@
     PET IDENTIFICATION CARD | BACOLOD CITY
   </div>
 
-  <!-- Main -->
   <div class="main">
 
     <div class="left">
@@ -55,17 +46,21 @@
 
   </div>
 
-  <!-- Owner -->
   <div class="owner">
     <h3>OWNER / RESIDENCE INFORMATION</h3>
     <p id="owner"></p>
     <p id="address"></p>
     <p id="phone"></p>
+
+    <!-- NEW BUTTONS -->
+    <div class="buttons">
+      <a id="mapBtn" target="_blank">📍 View Map</a>
+      <a id="fbBtn" target="_blank">📘 Facebook</a>
+    </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-   made by sutu ❤️
+    made by sutu ❤️
   </div>
 
 </div>
