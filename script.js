@@ -3,7 +3,7 @@
 // =========================
 const pet = {
   name: "Max",
-  breed: "Belgian Malinois",
+  breed: "Belgian Shepherd",
   status: "Fully Vaccinated",
   sex: "Male",
   color: "Fawn/Tan with Black Mask",
