@@ -1,3 +1,6 @@
+// =========================
+// 🐾 PET DATA
+// =========================
 const pet = {
   name: "Max",
   breed: "Belgian Malinois",
@@ -34,7 +37,7 @@ function calculateLiveAge(birthDate) {
 }
 
 // =========================
-// 🎂 BIRTHDAY COUNTDOWN
+// 🎂 BIRTHDAY COUNTDOWN (FIXED)
 // =========================
 function getBirthdayCountdown(birthDate) {
   const now = new Date();
@@ -57,8 +60,12 @@ function getBirthdayCountdown(birthDate) {
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
-  // 🎉 improved birthday condition
-  if (days === 0) {
+  // ✅ accurate birthday check (date only)
+  const isBirthday =
+    now.getDate() === birth.getDate() &&
+    now.getMonth() === birth.getMonth();
+
+  if (isBirthday) {
     return "🎉 Today is the birthday!";
   }
 
@@ -106,6 +113,85 @@ function updateLiveData() {
 
   document.getElementById("birthdayTimer").textContent =
     getBirthdayCountdown(pet.birthDate);
+}
+
+// =========================
+// 📲 DOWNLOAD STORY (1080x1920)
+// =========================
+function downloadStory() {
+  const canvas = document.getElementById("storyCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // background
+  ctx.fillStyle = "#fff7ed";
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  // card
+  ctx.fillStyle = "#ffffff";
+  ctx.strokeStyle = "#d97706";
+  ctx.lineWidth = 12;
+  roundRect(ctx, 80, 120, 920, 1680, 40, true, true);
+
+  // title
+  ctx.fillStyle = "#b45309";
+  ctx.font = "bold 48px Poppins";
+  ctx.textAlign = "center";
+  ctx.fillText("PET IDENTIFICATION CARD", 540, 220);
+
+  // name
+  const name = document.getElementById("petNameBig").innerText || "PET NAME";
+  ctx.fillStyle = "#d97706";
+  ctx.font = "bold 64px Poppins";
+  ctx.fillText(name, 540, 1450);
+
+  // image
+  const img = document.getElementById("petImage");
+  const petImg = new Image();
+  petImg.crossOrigin = "anonymous";
+  petImg.src = img.src;
+
+  petImg.onload = () => {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(540, 700, 220, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(petImg, 320, 480, 440, 440);
+    ctx.restore();
+
+    // barcode
+    const barcode = new Image();
+    barcode.src = "barcode.png";
+
+    barcode.onload = () => {
+      ctx.drawImage(barcode, 360, 1520, 360, 120);
+
+      // download
+      const link = document.createElement("a");
+      link.download = "pet-story.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    };
+  };
+}
+
+// =========================
+// 🧩 HELPER: ROUNDED RECT
+// =========================
+function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
 }
 
 // =========================
