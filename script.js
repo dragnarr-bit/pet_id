@@ -9,7 +9,7 @@ const pet = {
   color: "Fawn/Tan with Black Mask",
   owner: "Lhyam Khyle Paredes",
   address: "Aquarius St., JR Torres Subd., Brgy. Singcang, Bacolod City",
-  phone: "09663784966 (Globe)",
+  phone: "09663784966/09939519345",
   image: "download.png",
   birthDate: "2025-04-15"
 };
